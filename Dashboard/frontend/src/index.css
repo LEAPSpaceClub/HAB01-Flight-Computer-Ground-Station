@@ -1,0 +1,91 @@
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+:root {
+  --color-bg-primary: #0f1117;
+  --color-bg-secondary: #1a1d27;
+  --color-bg-card: #1e2130;
+  --color-border: #2a2d3a;
+  --color-text-primary: #e4e4e7;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-accent: #3b82f6;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #06b6d4;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Tabular figures for data display */
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Dark-themed OSM tiles via CSS filter — no API key needed */
+.dark-tiles .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(1.1);
+}
+
+/* Leaflet dark theme overrides */
+.leaflet-container {
+  background: var(--color-bg-primary) !important;
+}
+.leaflet-control-zoom a {
+  background: var(--color-bg-card) !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border) !important;
+}
+.leaflet-control-attribution {
+  background: rgba(15, 17, 23, 0.8) !important;
+  color: var(--color-text-muted) !important;
+}
+.leaflet-control-attribution a {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Navigation tab bar */
+.nav-tab {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  text-decoration: none;
+}
+.nav-tab:hover {
+  color: var(--color-text-secondary);
+}
+.nav-tab.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* Monospace numbers in tables */
+td.tabular-num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
